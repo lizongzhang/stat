@@ -14,7 +14,7 @@
 
 <meta name="date" content="2023-03-31" />
 
-<title>统计学</title>
+<title>R 描述性统计量的计算</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -31,6 +31,97 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+
+a.sourceLine {
+pointer-events: auto;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -57,7 +148,7 @@ code span.ot { color: #007020; }
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">统计学</h1>
+<h1 class="title toc-ignore project-name">R 描述性统计量的计算</h1>
 <h4 class="author project-author">Li Zongzhang</h4>
 <h4 class="date project-date">2023-03-31</h4>
 </section>
@@ -66,230 +157,306 @@ code span.ot { color: #007020; }
 <div id="TOC" class="toc">
 <div class="toc-box">
 <ul>
-<li><a href="#教学资源" id="toc-教学资源"><span class="toc-section-number">1</span> 教学资源</a></li>
-<li><a href="#案例作业和实验报告" id="toc-案例作业和实验报告"><span class="toc-section-number">2</span> 案例作业和实验报告</a></li>
-<li><a href="#理论课素材" id="toc-理论课素材"><span class="toc-section-number">3</span> 理论课素材</a></li>
-<li><a href="#实验课素材" id="toc-实验课素材"><span class="toc-section-number">4</span> 实验课素材</a></li>
+<li><a href="#计算单个的描述性统计量" id="toc-计算单个的描述性统计量"><span class="toc-section-number">1</span> 计算单个的描述性统计量</a></li>
+<li><a href="#批量计算描述性统计量" id="toc-批量计算描述性统计量"><span class="toc-section-number">2</span> 批量计算描述性统计量</a>
+<ul>
+<li><a href="#basesummary" id="toc-basesummary"><span class="toc-section-number">2.1</span> base::summary()</a></li>
+<li><a href="#psychdescribe" id="toc-psychdescribe"><span class="toc-section-number">2.2</span> psych::describe()</a></li>
+</ul></li>
+<li><a href="#计算分组数据的描述性统计量" id="toc-计算分组数据的描述性统计量"><span class="toc-section-number">3</span> 计算分组数据的描述性统计量</a></li>
+<li><a href="#本章习题" id="toc-本章习题"><span class="toc-section-number">4</span> 本章习题</a></li>
 </ul>
 </div>
 </div>
 
 <section class="main-content">
-<p><strong>注意：本站电子资源、视频、讲义供学习交流使用，请勿用于商业用途</strong></p>
-<div id="教学资源" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> 教学资源</h1>
-<ul>
-<li><p>教材及配套数据</p>
-<ul>
-<li><p>统计学(第8版), 贾俊平 何晓群 金勇进
-编著，中国人民大学出版社,2021.</p></li>
-<li><p>百度网盘<a href="https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ" class="uri">https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ</a></p>
-<p>提取码: 93a8</p></li>
-</ul></li>
-<li><p>教学软件及视频</p>
-<ul>
-<li><p>Excel 2016 或以上版本，<strong>注意：不是WPS</strong></p></li>
-<li><p>R 4.2.2 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></p></li>
-<li><p>R Studio 2022.12.0 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
-<li><p>Excel系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758820">Excel数据分析实战</a></li>
-</ul></li>
-<li><p>R系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758271">R数据分析实战</a></li>
-</ul></li>
-</ul></li>
-<li><p>教学平台</p>
-<ul>
-<li><p>91速课(<a href="https://www.91suke.com" class="uri">https://www.91suke.com</a>)：发布作业，提交作业，测验，考勤等</p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/91.html">在91速课中设置姓名和学号的方法</a></li>
-</ul></li>
-<li><p>QQ群：提交小组作业，提问答疑</p></li>
-</ul></li>
-<li><p>参考书</p>
-<ul>
-<li><p>百度网盘 <a href="https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q" class="uri">https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q</a></p>
-<p>提取码: reel</p></li>
-</ul></li>
-</ul>
+<p>数据文件：msleep{ggplot2}</p>
+<p>请查看msleep帮助文件</p>
+<div id="计算单个的描述性统计量" class="section level1" number="1">
+<h1><span class="header-section-number">1</span>
+计算单个的描述性统计量</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msleep)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(msleep)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 10.43373</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 10.1</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 19.9</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 1.9</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 5.9</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 19.80568</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 4.450357</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>   0%   25%   50%   75%  100% 
+ 1.90  7.85 10.10 13.75 19.90 </code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">0.9</span>,<span class="fl">0.1</span>))</span></code></pre></div>
+<pre><code>  10%   20%   30%   40%   50%   60%   70%   80%   90% 
+ 3.92  6.24  8.52  9.48 10.10 11.14 12.80 14.40 15.88 </code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#计算偏度和峰度</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;e1071&quot;)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 0.05230964</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosis</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] -0.7074466</code></pre>
+<p>注意：mode()返回对象的类型，并不是众数。</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(vore)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(genus)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#定量数据的众数</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DescTools&quot;)</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(sleep_total)</span></code></pre></div>
+<pre><code>[1] 12.5
+attr(,&quot;freq&quot;)
+[1] 4</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#定性数据的众数</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<pre><code>
+  carni   herbi insecti    omni 
+     19      32       5      20 </code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<pre><code>NULL</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>vore))</span></code></pre></div>
+<pre><code>herbi 
+    2 </code></pre>
 </div>
-<div id="案例作业和实验报告" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> 案例作业和实验报告</h1>
-<ul>
-<li><p>提交分组信息：<a href="https://www.wjx.top/vm/e3AyWsR.aspx#" class="uri">https://www.wjx.top/vm/e3AyWsR.aspx#</a></p></li>
-<li><p>案例作业</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/teamwork.html">要求</a></p></li>
-<li><p>示例</p>
-<ul>
-<li><p>[第3-4章]<to be updated></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case2.html">第7-8章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case3.html">第9-10章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case4.html">第11章</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>往届学生习作</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/stu1.html">广东省地市领导班子特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu2.html">奶茶消费调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu3.html">大学生择偶观调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu4.html">证监会录用人员特征</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu5.html">广州市住宅房租比较</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu6.html">饮料特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu7.html">证券分析师</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/report.html">实验报告要求</a></p></li>
-</ul>
+<div id="批量计算描述性统计量" class="section level1" number="2">
+<h1><span class="header-section-number">2</span>
+批量计算描述性统计量</h1>
+<div id="basesummary" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> base::summary()</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep)</span></code></pre></div>
+<pre><code>     name              genus               vore              order          
+ Length:83          Length:83          Length:83          Length:83         
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ conservation        sleep_total      sleep_rem      sleep_cycle    
+ Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  
+ Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  
+ Mode  :character   Median :10.10   Median :1.500   Median :0.3333  
+                    Mean   :10.43   Mean   :1.875   Mean   :0.4396  
+                    3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  
+                    Max.   :19.90   Max.   :6.600   Max.   :1.5000  
+                                    NA&#39;s   :22      NA&#39;s   :51      
+     awake          brainwt            bodywt        
+ Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  
+ 1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  
+ Median :13.90   Median :0.01240   Median :   1.670  
+ Mean   :13.57   Mean   :0.28158   Mean   : 166.136  
+ 3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  
+ Max.   :22.10   Max.   :5.71200   Max.   :6654.000  
+                 NA&#39;s   :27                          </code></pre>
 </div>
-<div id="理论课素材" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> 理论课素材</h1>
-<ul>
-<li><p>第1章导论</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap1.html">chap 1
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1334y1y7U5/">R和R
-Studio 的下载</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1eR4y1V7uW/">R和R
-Studio的安装</a></p></li>
-<li><p>若无法安装R和R Studio, 请观看：<a href="https://www.bilibili.com/video/BV1zY4y1M7HX/">不用安装就能用的RStudio——RStudio
-Cloud</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第2章 数据的搜集</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap2.html">chap 2
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19m4y1F7FE/">如何从中国知网下载统计数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18u411D7GM/">八爪鱼客户端抓取网页数据</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1HL411N7BG/">如何用Excel整理提取的网页数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19S4y1r7E4/">如何加载EXCEL数据分析加载项？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GU4y1f7f9/">如何将WORD文档转成图片？</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第3章 数据的图表展示</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap3.html">chap 3
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1uK4y1X752/">Excel图表工具</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1t3411W7V9/">EXCEL图表工具应用——教材第3章习题讲评</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第4章 数据的概括性度量</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap4.html">chap 4
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1nL411Q79r/">Excel描述统计分析——第4章习题讲评</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1PF411N74S/">R
-描述统计量的批量计算 describe函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GN4y177GK/">R描述统计性统计分析
-分位数 quantile函数</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第6章 统计量及其抽样分布</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap6.html">chap 6
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19Z4y1G7qF/">Excel
-中dist inv函数的运用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Hi4y1L7Eg/">EXCEL
-利用norm.dist函数绘制正态分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F54y1k7sc/">EXCEL
-利用chisq.dist函数绘制卡方分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1df4y1i7c9/">EXCEL
-利用t.dist函数绘制t分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1KV41117mR/">EXCEL
-利用f.dist函数绘制F分布概率密度曲线</a></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-<li><p>第7章 参数估计</p>
-<ul>
-<li><p>[chap 7 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p>[Excel]<to be updated></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-<li><p>第8章 假设检验</p>
-<ul>
-<li><p>[chap 8 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p>[Excel]<to be updated></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-</ul>
+<div id="psychdescribe" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span>
+psych::describe()</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;psych&quot;)</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep)</span></code></pre></div>
+<pre><code>              vars  n   mean     sd median trimmed   mad  min     max   range
+name*            1 83  42.00  24.10  42.00   42.00 31.13 1.00   83.00   82.00
+genus*           2 83  40.25  22.52  41.00   40.45 28.17 1.00   77.00   76.00
+vore*            3 76   2.34   1.13   2.00    2.31  1.48 1.00    4.00    3.00
+order*           4 83  11.28   6.15  15.00   11.54  4.45 1.00   19.00   18.00
+conservation*    5 54   3.78   1.31   4.00    3.77  0.74 1.00    6.00    5.00
+sleep_total      6 83  10.43   4.45  10.10   10.38  5.04 1.90   19.90   18.00
+sleep_rem        7 61   1.88   1.30   1.50    1.71  1.19 0.10    6.60    6.50
+sleep_cycle      8 32   0.44   0.36   0.33    0.38  0.23 0.12    1.50    1.38
+awake            9 83  13.57   4.45  13.90   13.62  5.04 4.10   22.10   18.00
+brainwt         10 56   0.28   0.98   0.01    0.07  0.02 0.00    5.71    5.71
+bodywt          11 83 166.14 786.84   1.67   20.49  2.43 0.00 6654.00 6654.00
+               skew kurtosis    se
+name*          0.00    -1.24  2.65
+genus*        -0.06    -1.25  2.47
+vore*          0.42    -1.25  0.13
+order*        -0.38    -1.55  0.68
+conservation* -0.14    -0.50  0.18
+sleep_total    0.05    -0.71  0.49
+sleep_rem      1.46     2.73  0.17
+sleep_cycle    1.49     1.57  0.06
+awake         -0.05    -0.71  0.49
+brainwt        4.63    20.96  0.13
+bodywt         7.10    53.72 86.37</code></pre>
+<p>报告四分位数和IQR</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>              vars  n   mean     sd median trimmed   mad  min     max   range
+name*            1 83  42.00  24.10  42.00   42.00 31.13 1.00   83.00   82.00
+genus*           2 83  40.25  22.52  41.00   40.45 28.17 1.00   77.00   76.00
+vore*            3 76   2.34   1.13   2.00    2.31  1.48 1.00    4.00    3.00
+order*           4 83  11.28   6.15  15.00   11.54  4.45 1.00   19.00   18.00
+conservation*    5 54   3.78   1.31   4.00    3.77  0.74 1.00    6.00    5.00
+sleep_total      6 83  10.43   4.45  10.10   10.38  5.04 1.90   19.90   18.00
+sleep_rem        7 61   1.88   1.30   1.50    1.71  1.19 0.10    6.60    6.50
+sleep_cycle      8 32   0.44   0.36   0.33    0.38  0.23 0.12    1.50    1.38
+awake            9 83  13.57   4.45  13.90   13.62  5.04 4.10   22.10   18.00
+brainwt         10 56   0.28   0.98   0.01    0.07  0.02 0.00    5.71    5.71
+bodywt          11 83 166.14 786.84   1.67   20.49  2.43 0.00 6654.00 6654.00
+               skew kurtosis    se   IQR Q0.25 Q0.75
+name*          0.00    -1.24  2.65 41.00 21.50 62.50
+genus*        -0.06    -1.25  2.47 38.00 21.50 59.50
+vore*          0.42    -1.25  0.13  2.25  1.75  4.00
+order*        -0.38    -1.55  0.68 13.00  4.00 17.00
+conservation* -0.14    -0.50  0.18  1.00  3.00  4.00
+sleep_total    0.05    -0.71  0.49  5.90  7.85 13.75
+sleep_rem      1.46     2.73  0.17  1.50  0.90  2.40
+sleep_cycle    1.49     1.57  0.06  0.40  0.18  0.58
+awake         -0.05    -0.71  0.49  5.90 10.25 16.15
+brainwt        4.63    20.96  0.13  0.12  0.00  0.13
+bodywt         7.10    53.72 86.37 41.58  0.17 41.75</code></pre>
 </div>
-<div id="实验课素材" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> 实验课素材</h1>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/rintro.html">1 R
-&amp; R Studio Introduction 讲义</a></p>
-<ul>
-<li><p>CRAN Task Views <a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a></p></li>
-<li><p>Most Downloaded R Packages <a href="https://www.r-pkg.org/" class="uri">https://www.r-pkg.org/</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV12u411D7uP/">如何安装R扩展包</a></li>
-</ul></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/data_type_structure.html">2
-R的数据类型和数据结构 script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/base_graph_tool.html">3
-R的基础图形工具 script</a></p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/base_graph_tool_solutions.html">第3讲习题答案</a></li>
-</ul></li>
-<li><p><strong>4 ggplot2</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/4.1.html">4.1 ggplot2
-讲义</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/ggplot2intro.html">4.2 ggplot2
-Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/4solution.html">第4讲
-习题答案 Script</a></p></li>
-<li><p>Useful links</p>
-<ul>
-<li><p>ggplot2 extensions - gallery <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p></li>
-<li><p>color codes <a href="https://htmlcolorcodes.com" class="uri">https://htmlcolorcodes.com</a></p></li>
-</ul></li>
-<li><p>Online Books</p>
-<ul>
-<li><p>Wickham, Hadley. ggplot2: elegant graphics for data analysis.
-springer, 2016. <a href="https://ggplot2-book.org/" class="uri">https://ggplot2-book.org/</a></p></li>
-<li><p>Wickham, Hadley, Garrett Grolemund. R for Data Science <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>5 R Data Manipulation with dplyr</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R5dplyr.html">5 dplyr
-Script</a></p></li>
-<li><p>[习题答案]<to be updated></p></li>
-</ul></li>
-<li><p><strong>6 R 描述性统计y与分布理论</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/6.1.html">6.1
-描述统计量的计算 Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/6.2.html">6.2
-绘制概率密度曲线 Script</a></p></li>
-<li><p>[6.3 中心极限定理模拟 Script]<to be updated></p></li>
-</ul></li>
-</ul>
+</div>
+<div id="计算分组数据的描述性统计量" class="section level1" number="3">
+<h1><span class="header-section-number">3</span>
+计算分组数据的描述性统计量</h1>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep<span class="sc">~</span>vore,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>
+ Descriptive statistics by group 
+vore: carni
+              vars  n  mean     sd median trimmed   mad  min    max  range
+name*            1 19 10.00   5.63  10.00   10.00  7.41 1.00  19.00  18.00
+genus*           2 19  9.26   4.77  10.00    9.35  5.93 1.00  16.00  15.00
+vore*            3 19  1.00   0.00   1.00    1.00  0.00 1.00   1.00   0.00
+order*           4 19  1.89   1.52   1.00    1.71  0.00 1.00   6.00   5.00
+conservation*    5 14  4.07   1.64   4.00    4.17  2.22 1.00   6.00   5.00
+sleep_total      6 19 10.38   4.67  10.40   10.30  6.08 2.70  19.40  16.70
+sleep_rem        7 10  2.29   1.86   1.95    2.02  1.56 0.10   6.60   6.50
+sleep_cycle      8  5  0.37   0.03   0.38    0.37  0.05 0.33   0.42   0.08
+awake            9 19 13.63   4.68  13.60   13.70  6.08 4.60  21.35  16.75
+brainwt         10  9  0.08   0.10   0.04    0.08  0.04 0.01   0.32   0.31
+bodywt          11 19 90.75 182.07  20.49   54.37 30.34 0.03 800.00 799.97
+               skew kurtosis    se   IQR Q0.25 Q0.75
+name*          0.00    -1.39  1.29  9.00  5.50 14.50
+genus*        -0.21    -1.34  1.09  7.00  5.50 12.50
+vore*           NaN      NaN  0.00  0.00  1.00  1.00
+order*         1.51     0.96  0.35  1.00  1.00  2.00
+conservation* -0.30    -1.19  0.44  2.50  3.25  5.75
+sleep_total    0.10    -1.02  1.07  6.75  6.25 13.00
+sleep_rem      0.96     0.19  0.59  1.73  1.33  3.05
+sleep_cycle    0.04    -1.85  0.01  0.03  0.35  0.38
+awake         -0.10    -1.02  1.07  6.75 11.00 17.75
+brainwt        1.46     0.74  0.03  0.05  0.02  0.07
+bodywt         3.07     9.15 41.77 89.66  3.34 93.00
+------------------------------------------------------------ 
+vore: herbi
+              vars  n   mean      sd median trimmed   mad  min     max   range
+name*            1 32  16.50    9.38  16.50   16.50 11.86 1.00   32.00   31.00
+genus*           2 32  15.59    8.67  15.50   15.73 11.12 1.00   29.00   28.00
+vore*            3 32   1.00    0.00   1.00    1.00  0.00 1.00    1.00    0.00
+order*           4 32   6.41    3.18   8.50    6.73  0.74 1.00    9.00    8.00
+conservation*    5 26   3.62    1.42   4.00    3.59  1.48 1.00    6.00    5.00
+sleep_total      6 32   9.51    4.88  10.30    9.55  6.23 1.90   16.60   14.70
+sleep_rem        7 24   1.37    0.92   0.95    1.27  0.67 0.40    3.40    3.00
+sleep_cycle      8 12   0.42    0.32   0.22    0.39  0.12 0.12    1.00    0.88
+awake            9 32  14.49    4.88  13.70   14.45  6.23 7.40   22.10   14.70
+brainwt         10 20   0.62    1.57   0.01    0.13  0.02 0.00    5.71    5.71
+bodywt          11 32 366.88 1244.08   1.23   63.04  1.75 0.02 6654.00 6653.98
+               skew kurtosis     se   IQR Q0.25 Q0.75
+name*          0.00    -1.31   1.66 15.50  8.75 24.25
+genus*        -0.04    -1.37   1.53 14.50  8.75 23.25
+vore*           NaN      NaN   0.00  0.00  1.00  1.00
+order*        -0.67    -1.26   0.56  5.25  3.75  9.00
+conservation*  0.02    -1.06   0.28  2.00  2.00  4.00
+sleep_total   -0.14    -1.63   0.86  9.92  4.30 14.22
+sleep_rem      0.84    -0.68   0.19  1.38  0.60  1.97
+sleep_cycle    0.65    -1.40   0.09  0.51  0.18  0.69
+awake          0.14    -1.63   0.86  9.93  9.78 19.70
+brainwt        2.47     4.57   0.35  0.23  0.01  0.24
+bodywt         4.18    17.68 219.92 38.81  0.19 39.00
+------------------------------------------------------------ 
+vore: insecti
+              vars n  mean    sd median trimmed  mad  min   max range  skew
+name*            1 5  3.00  1.58   3.00    3.00 1.48 1.00  5.00  4.00  0.00
+genus*           2 5  3.00  1.58   3.00    3.00 1.48 1.00  5.00  4.00  0.00
+vore*            3 5  1.00  0.00   1.00    1.00 0.00 1.00  1.00  0.00   NaN
+order*           4 5  2.20  1.30   2.00    2.20 1.48 1.00  4.00  3.00  0.26
+conservation*    5 3  1.67  0.58   2.00    1.67 0.00 1.00  2.00  1.00 -0.38
+sleep_total      6 5 14.94  5.92  18.10   14.94 2.67 8.40 19.90 11.50 -0.26
+sleep_rem        7 4  3.52  1.93   3.00    3.52 1.41 2.00  6.10  4.10  0.37
+sleep_cycle      8 3  0.16  0.04   0.17    0.16 0.05 0.12  0.20  0.08 -0.13
+awake            9 5  9.06  5.92   5.90    9.06 2.67 4.10 15.60 11.50  0.26
+brainwt         10 5  0.02  0.03   0.00    0.02 0.00 0.00  0.08  0.08  0.86
+bodywt          11 5 12.92 26.39   0.07   12.92 0.10 0.01 60.00 59.99  1.06
+              kurtosis    se   IQR Q0.25 Q0.75
+name*            -1.91  0.71  2.00  2.00  4.00
+genus*           -1.91  0.71  2.00  2.00  4.00
+vore*              NaN  0.00  0.00  1.00  1.00
+order*           -1.96  0.58  2.00  1.00  3.00
+conservation*    -2.33  0.33  0.50  1.50  2.00
+sleep_total      -2.24  2.65 11.10  8.60 19.70
+sleep_rem        -2.03  0.96  2.37  2.08  4.45
+sleep_cycle      -2.33  0.02  0.04  0.14  0.18
+awake            -2.24  2.65 11.10  4.30 15.40
+brainwt          -1.23  0.02  0.02  0.00  0.03
+bodywt           -0.94 11.80  4.48  0.02  4.50
+------------------------------------------------------------ 
+vore: omni
+              vars  n  mean    sd median trimmed  mad  min   max range  skew
+name*            1 20 10.50  5.92  10.50   10.50 7.41 1.00 20.00 19.00  0.00
+genus*           2 20 10.50  5.92  10.50   10.50 7.41 1.00 20.00 19.00  0.00
+vore*            3 20  1.00  0.00   1.00    1.00 0.00 1.00  1.00  0.00   NaN
+order*           4 20  5.15  1.81   5.00    5.25 0.74 1.00  8.00  7.00 -0.31
+conservation*    5  9  1.89  0.33   2.00    1.89 0.00 1.00  2.00  1.00 -2.07
+sleep_total      6 20 10.93  2.95   9.90   10.45 1.33 8.00 18.00 10.00  1.28
+sleep_rem        7 18  1.96  1.01   1.85    1.85 0.74 0.70  4.90  4.20  1.32
+sleep_cycle      8 11  0.59  0.47   0.50    0.54 0.37 0.13  1.50  1.37  0.89
+awake            9 20 13.07  2.95  14.10   13.55 1.33 6.00 16.00 10.00 -1.28
+brainwt         10 17  0.15  0.32   0.01    0.08 0.01 0.00  1.32  1.32  2.78
+bodywt          11 20 12.72 24.69   0.95    6.63 1.33 0.00 86.25 86.25  1.85
+              kurtosis   se  IQR Q0.25 Q0.75
+name*            -1.38 1.32 9.50  5.75 15.25
+genus*           -1.38 1.32 9.50  5.75 15.25
+vore*              NaN 0.00 0.00  1.00  1.00
+order*           -0.10 0.41 1.00  5.00  6.00
+conservation*     2.63 0.11 0.00  2.00  2.00
+sleep_total       0.17 0.66 1.83  9.10 10.93
+sleep_rem         1.54 0.24 1.05  1.25  2.30
+sleep_cycle      -0.73 0.14 0.45  0.26  0.71
+awake             0.17 0.66 1.83 13.07 14.90
+brainwt           7.14 0.08 0.18  0.00  0.18
+bodywt            2.09 5.52 7.42  0.18  7.60</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>(),</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(bodywt),</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">q1 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.25</span>),</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(bodywt),</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(bodywt),</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">q3 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.75</span>),</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(bodywt),</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(bodywt))</span></code></pre></div>
+<pre><code># A tibble: 5 × 9
+  vore    `n()`   min     q1 median    mean    q3    max      sd
+  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1 carni      19 0.028 3.34   20.5    90.8   93     800    182.  
+2 herbi      32 0.022 0.191   1.23  367.    39    6654   1244.  
+3 insecti     5 0.01  0.023   0.075  12.9    4.5    60     26.4 
+4 omni       20 0.005 0.176   0.95   12.7    7.6    86.2   24.7 
+5 &lt;NA&gt;        7 0.021 0.0465  0.122   0.858  1.08    3.6    1.34</code></pre>
+</div>
+<div id="本章习题" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> 本章习题</h1>
+<p>数据：ggplot2::mpg</p>
+<p>要求：将代码与输出结果转成图片后提交。</p>
+<ol style="list-style-type: decimal">
+<li><p>报告该数据集中所有定量变量的均值、中位数、最⼤值、最小值、四分位数、⽅差、标准差、偏度和峰度。</p></li>
+<li><p>将mpg中的汽车按照drv的不同分为三组（front-wheel, four-wheel,
+rear-wheel）,
+计算各组的cty和hwy的均值、中位数、最⼤值、最小值和标准差。</p></li>
+</ol>
 </div>
 </section>
 
