@@ -1,0 +1,150 @@
+---
+title: "6 Solutions"
+author: "li zongzhang"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+    toc: yes
+    toc_float: no
+    number_sections: no
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment="")
+```
+
+```{r data, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readxl)
+library(knitr)
+library(gt)
+```
+
+
+# 6.1 描述性统计量的报告——作业
+
+数据集：mpg {ggplot2}
+
+
+1. 报告该数据集中所有定量变量的均值、中位数、最⼤值、最小值、四分位数、⽅差、标准差、偏度和峰度。
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(psych)
+library(gt)
+
+
+mpg %>% 
+  select_if(is.numeric) %>% 
+  describe(quant=c(.25,.75)) %>% 
+  select(mean, median, max, min, Q0.25,Q0.75,skew, kurtosis,sd) %>%   mutate(var = sd^2) %>% 
+  as.data.frame() %>% 
+  round(3) 
+```
+
+2. 将mpg中的汽车按照drv的不同分为三组（front-wheel, four-wheel, rear-wheel）, 计算各组的cty和hwy的均值、中位数、最⼤值、最小值和标准差。
+
+```{r}
+mpg %>% 
+  select(cty, hwy) %>% 
+  describeBy(group = mpg$drv, mat = T, digits = 3) %>% 
+  select(group1, n, mean,sd, median, min, max)
+
+mpg %>% 
+  select(drv, cty, hwy) %>%
+  group_by(drv) %>% 
+  summarize(mean = mean(cty),
+            median = median(cty),
+            sd = sd(cty),
+            max = max(cty),
+            min = min(cty))
+
+mpg %>% 
+  select(drv, cty, hwy) %>%
+  group_by(drv) %>% 
+  summarize(mean = mean(hwy),
+            median = median(hwy),
+            sd = sd(hwy),
+            max = max(hwy),
+            min = min(hwy))
+
+
+```
+
+
+## 第3题
+
+3.  任选mpg中的某个变量，用if_else()函数对该变量的数值进⾏条件转换。
+
+```{r}
+mpgnew <- mpg %>% 
+  mutate(transmission = 
+           if_else(substring(trans, 1,4) == "auto", 
+                   "auto","manual"))
+
+head(mpgnew) %>% gt()
+
+#二值转换 if_else
+
+mpg$transmission <- if_else(
+  substring(mpg$trans, 1,4) == "auto", 
+  "auto","manual") 
+
+#多值转换 case_when
+mpg$drive <- case_when(
+  mpg$drv == "f" ~ "front-wheel",
+  mpg$drv == "r" ~ "rear-wheel",
+  mpg$drv == "4" ~ "four-wheel")
+
+
+head(mpg) %>% gt()
+```
+
+# 6.2之一 绘制概率密度曲线——作业
+
+
+1.在同⼀个坐标系下绘制N(0,1),N(-1,0.25),N(2,4)的概率密度曲线。
+
+2.在同⼀个坐标系下绘制N(0,1), t(2), t(5),t(30)的概率密度曲线。
+
+3.在同⼀个坐标系下绘制chisq(5), chisq(10), chisq(30)的概率密度曲线。
+
+4.同⼀个坐标系下绘制F(2, 5), F(5, 10)的概率密度曲线。
+
+```{r}
+
+# the & operator is used to combine two conditions, where both conditions must be true for a row to be included in the filtered data frame.
+
+mpg %>% 
+  filter(class == "suv" & 
+           cyl == 8 & 
+          year == 2008) %>% 
+  gt()
+
+
+mpg %>% 
+  filter(substr(trans, 1, 4) == "auto" & 
+        class %in% c("compact", "subcompact") &
+          !fl %in% c("c" ,"d" ,"e")) %>% 
+  gt()
+
+
+# the | operator combines the two conditions, where only one of the conditions needs to be true for a row to be included in the filtered data frame.
+
+mpg %>% 
+  filter(class == "suv" | 
+           cyl == 8 |
+          year == 2008)  %>% 
+  head() %>% 
+  gt()
+
+```
+
+
