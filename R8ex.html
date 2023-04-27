@@ -14,7 +14,7 @@
 
 <meta name="date" content="2023-04-27" />
 
-<title>统计学</title>
+<title>R 假设检验习题</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -57,7 +57,7 @@ code span.ot { color: #007020; }
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">统计学</h1>
+<h1 class="title toc-ignore project-name">R 假设检验习题</h1>
 <h4 class="author project-author">Li Zongzhang</h4>
 <h4 class="date project-date">2023-04-27</h4>
 </section>
@@ -66,384 +66,25 @@ code span.ot { color: #007020; }
 <div id="TOC" class="toc">
 <div class="toc-box">
 <ul>
-<li><a href="#教学资源" id="toc-教学资源"><span class="toc-section-number">1</span> 教学资源</a></li>
-<li><a href="#案例作业和实验报告" id="toc-案例作业和实验报告"><span class="toc-section-number">2</span> 案例作业和实验报告</a></li>
-<li><a href="#理论课素材" id="toc-理论课素材"><span class="toc-section-number">3</span> 理论课素材</a></li>
-<li><a href="#实验课素材" id="toc-实验课素材"><span class="toc-section-number">4</span> 实验课素材</a></li>
+<li><a href="#本章习题" id="toc-本章习题">本章习题</a></li>
 </ul>
 </div>
 </div>
 
 <section class="main-content">
-<style type="text/css">
-
-#TOC {
-position: fixed;
-top: 0;
-right: 0;
-height: 100%;
-width: 30%;
-overflow-y: scroll;
-padding-top: 1em;
-padding-bottom: 1em;
-}
-
-body {
-margin-right: 1%;
-}
-</style>
-<p><strong>注意：本站电子资源、视频、讲义供学习交流使用，请勿用于商业用途</strong></p>
-<div id="教学资源" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> 教学资源</h1>
-<ul>
-<li><p>教材及配套数据</p>
-<ul>
-<li><p>统计学(第8版), 贾俊平 何晓群 金勇进
-编著，中国人民大学出版社,2021.</p></li>
-<li><p>百度网盘<a href="https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ" class="uri">https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ</a></p>
-<p>提取码: 93a8</p></li>
-</ul></li>
-<li><p>教学软件及视频</p>
-<ul>
-<li><p>Excel 2016 或以上版本，<strong>注意：不是WPS</strong></p></li>
-<li><p>R 4.2.2 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></p></li>
-<li><p>R Studio 2022.12.0 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
-<li><p>Excel系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758820">Excel数据分析实战</a></li>
-</ul></li>
-<li><p>R系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758271">R数据分析实战</a></li>
-</ul></li>
-</ul></li>
-<li><p>教学平台</p>
-<ul>
-<li><p>91速课(<a href="https://www.91suke.com" class="uri">https://www.91suke.com</a>)：发布作业，提交作业，测验，考勤等</p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/91.html">在91速课中设置姓名和学号的方法</a></li>
-</ul></li>
-<li><p>QQ群：提交小组作业，提问答疑</p></li>
-</ul></li>
-<li><p>参考书</p>
-<ul>
-<li><p>百度网盘 <a href="https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q" class="uri">https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q</a></p>
-<p>提取码: reel</p></li>
-</ul></li>
-</ul>
-</div>
-<div id="案例作业和实验报告" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> 案例作业和实验报告</h1>
-<ul>
-<li><p>提交分组信息：<a href="https://www.wjx.top/vm/e3AyWsR.aspx#" class="uri">https://www.wjx.top/vm/e3AyWsR.aspx#</a></p></li>
-<li><p>案例作业</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/teamwork.html">要求</a></p></li>
-<li><p>示例</p>
-<ul>
-<li><p>[第3-4章]<to be updated></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case2.html">第7-8章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case3.html">第9-10章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case4.html">第11章</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>往届学生习作</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/stu1.html">广东省地市领导班子特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu2.html">奶茶消费调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu3.html">大学生择偶观调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu4.html">证监会录用人员特征</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu5.html">广州市住宅房租比较</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu6.html">饮料特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu7.html">证券分析师</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/report.html">实验报告要求</a></p></li>
-</ul>
-</div>
-<div id="理论课素材" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> 理论课素材</h1>
-<ul>
-<li><p>第1章导论</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap1.html">chap 1
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1334y1y7U5/">R和R
-Studio 的下载</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1eR4y1V7uW/">R和R
-Studio的安装</a></p></li>
-<li><p>若无法安装R和R Studio, 请观看：<a href="https://www.bilibili.com/video/BV1zY4y1M7HX/">不用安装就能用的RStudio——RStudio
-Cloud</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第2章 数据的搜集</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap2.html">chap 2
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19m4y1F7FE/">如何从中国知网下载统计数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18u411D7GM/">八爪鱼客户端抓取网页数据</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1HL411N7BG/">如何用Excel整理提取的网页数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19S4y1r7E4/">如何加载EXCEL数据分析加载项？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GU4y1f7f9/">如何将WORD文档转成图片？</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第3章 数据的图表展示</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap3.html">chap 3
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1uK4y1X752/">Excel图表工具</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1t3411W7V9/">EXCEL图表工具应用——教材第3章习题讲评</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第4章 数据的概括性度量</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap4.html">chap 4
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1nL411Q79r/">Excel描述统计分析——第4章习题讲评</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1PF411N74S/">R
-描述统计量的批量计算 describe函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GN4y177GK/">R描述统计性统计分析
-分位数 quantile函数</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第6章 统计量及其抽样分布</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap6.html">chap 6
-讲义</a></p></li>
-<li><p>Useful links</p>
-<ul>
-<li><p>分位数计算器 <a href="https://gallery.shinyapps.io/dist_calc/" class="uri">https://gallery.shinyapps.io/dist_calc/</a></p></li>
-<li><p>Central Limit Theorem for Means <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p></li>
-<li><p>中心极限定理 n=2-31 <a href="https://astools.datadesk.com/clt.html" class="uri">https://astools.datadesk.com/clt.html</a></p></li>
-<li><p>Galton Board <a href="https://www.mathsisfun.com/data/quincunx.html" class="uri">https://www.mathsisfun.com/data/quincunx.html</a></p></li>
-</ul></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19Z4y1G7qF/">Excel
-中dist inv函数的运用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Hi4y1L7Eg/">EXCEL
-利用norm.dist函数绘制正态分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F54y1k7sc/">EXCEL
-利用chisq.dist函数绘制卡方分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1df4y1i7c9/">EXCEL
-利用t.dist函数绘制t分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1KV41117mR/">EXCEL
-利用f.dist函数绘制F分布概率密度曲线</a></p></li>
-<li><p><a href="：https://www.bilibili.com/video/BV1C44y1P7Pe">中心极限定理在R中的模拟</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第7章 参数估计</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap7.html">chap 7
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1j5411V7bn/">Excel
-区间估计中置信水平的理解</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1j64y1f7rY/">Excel
-总体均值的置信区间是如何构造的？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1PV411h7rP/">总体方差的置信区间是如何构造的？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ea411i76G">置信水平的理解——基于R的模拟</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第8章 假设检验</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap8.html">chap 8
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1L54y1r73w/">Excel
-总体均值的Z检验：Z.test函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1uv411r7ws/">Excel
-总体均值的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1mr4y1w7yp/">Excel
-总体均值的T检验：P值法和临界值法</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Zr4y1F7jK/">Excel
-两个总体方差比的F检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV16Z4y137HV/">Excel
-两个总体均值是否相等的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1mD4y1Q77U/">EXCEL
-匹配样本的T检验</a></p></li>
-</ul></li>
-<li><p>疑难知识点</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=1">什么是P值</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=2">显著性水平和P值的区别</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=3">总体均值的检验：Z检验还是T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=4">单侧检验还是双侧检验</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第9章 独立性检验</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap9.html">chap 9
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1454y167ko/">EXCEL
-拟合优度检验 CHISQ.TEST函数的使用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19A411x7EU/">EXCEL
-独立性检验 CHISQ.TEST函数的使用</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第10章 方差分析</p>
-<ul>
-<li><p>[chap 10 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1nf4y1v71b/">EXCEL
-单因素方差分析</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18v411t7Hb/">EXCEL
-双因素方差分析</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第11章 相关和回归分析</p>
-<ul>
-<li><p>[chap 11 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p>[Excel]<to be updated></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-<li><p>第13章 时间序列</p>
-<ul>
-<li><p>[chap 13 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p>[Excel]<to be updated></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-<li><p>第14章 指数</p>
-<ul>
-<li><p>[chap 14 讲义]<to be updated></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p>[Excel]<to be updated></p></li>
-<li><p>[R]<to be updated></p></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-<div id="实验课素材" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> 实验课素材</h1>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/rintro.html">1 R
-&amp; R Studio Introduction 讲义</a></p>
-<ul>
-<li><p>CRAN Task Views <a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a></p></li>
-<li><p>Most Downloaded R Packages <a href="https://www.r-pkg.org/" class="uri">https://www.r-pkg.org/</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV12u411D7uP/">如何安装R扩展包</a></li>
-</ul></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/data_type_structure.html">2
-R的数据类型和数据结构 script</a></p>
-<ul>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1UL4y157kL/">R的数据类型</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1jF411g7Wz/">R的数据结构：向量和矩阵</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Wi4y1U7ti/">R的数据结构：数据框</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Tr4y1H7ga/">R的数据结构：列表list</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/base_graph_tool.html">3
-R的基础图形工具 script</a></p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/base_graph_tool_solutions.html">第3讲习题答案</a></li>
-</ul></li>
-<li><p><strong>4 ggplot2</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/4.1.html">4.1 ggplot2
-讲义</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/ggplot2intro.html">4.2 ggplot2
-Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/4solution.html">第4讲
-习题答案 Script</a></p></li>
-<li><p>Useful links</p>
-<ul>
-<li><p>ggplot2 extensions - gallery <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p></li>
-<li><p>color codes <a href="https://htmlcolorcodes.com" class="uri">https://htmlcolorcodes.com</a></p></li>
-</ul></li>
-<li><p>Online Books</p>
-<ul>
-<li><p>Wickham, Hadley. ggplot2: elegant graphics for data analysis.
-springer, 2016. <a href="https://ggplot2-book.org/" class="uri">https://ggplot2-book.org/</a></p></li>
-<li><p>Wickham, Hadley, Garrett Grolemund. R for Data Science <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>5 R Data Manipulation with dplyr</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/5dplyr.html">5 dplyr
-Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1XZ4y127rc/">R的dplyr函数：select()
-和 mutate()</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1D94y1d7wT/">R的dplyr函数：if_else()——对变量值进行条件转换</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1rY4y1e7oY/">R的dplyr函数：filter()——筛选个案</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1pG41177Bi/">如何删除含有缺失值的个案</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/5solution.html">第5讲
-习题答案</a></p></li>
-</ul></li>
-<li><p><strong>6 R 描述性统计与分布理论</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R6.1.html">6.1
-描述统计量的计算 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1PF411N74S/">R
-描述统计量的批量计算 describe函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GN4y177GK/">R
-计算分位数 quantile函数</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/R6.2.html">6.2
-绘制概率密度曲线 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1vr4y1L75F/">利用R绘制正态分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ga411T7vS/">R中rchisq函数和for循环的应用——不同自由度下的卡方分布比较</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/6solution.html">第6讲
-习题答案</a></p></li>
-</ul></li>
-<li><p><strong>7 中心极限定理与区间估计</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R7.1.html">7.1
-中心极限定理模拟 Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/R7.2.html">7.2
-区间估计和置信水平的理解 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="ttps://www.bilibili.com/video/BV1C44y1P7Pe/">中心极限定理在R中的模拟</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ea411i76G/">置信水平的理解——基于R的模拟</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1x3411J7xd/">总体均值的区间估计——R中的t.test函数</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>8 假设检验</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R8ex.html">本章作业</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1MB4y1m721/">R
-单个总体均值的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1MB4y1m7xw">R
-单个总体方差的检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1zu411k7dM/">两个总体均值的t检验——R中t.test()函数的运用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1zL4y1F78F/">两个总体方差的F检验——R中var.test()函数的运用</a></p></li>
-</ul></li>
-</ul></li>
-</ul>
+<div id="本章习题" class="section level1">
+<h1>本章习题</h1>
+<ol style="list-style-type: decimal">
+<li><p>用R完成统计学(第8版)P163, 习题8.4,习题8.7,习题8.8。</p>
+<p>答题要求：写出原假设、备择假设、P值和检验结论，解释判断依据，附上R代码及输出结果。</p></li>
+<li><p>用R完成统计学(第8版)P157，例题8.15。</p>
+<p>答题要求：写出原假设、备择假设、P值和检验结论，解释判断依据，附上R代码及输出结果。</p></li>
+<li><p>数据：统计学(第8版)P164，习题8.10</p>
+<p>利用假设检验的方法解答下列两个问题，写出原假设、备择假设、检验统计量的值、P值及判断结论，并报告R的代码及输出结果。</p>
+<p>3.1 两种方法的装配时长的方差是否相等？显著性水平为0.05.</p>
+<p>3.2
+能否认为甲方法装配时长的均值显著高于乙方法装配时长的均值？显著性水平为0.05.</p></li>
+</ol>
 </div>
 </section>
 
