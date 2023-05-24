@@ -14,7 +14,7 @@
 
 <meta name="date" content="2023-05-24" />
 
-<title>统计学</title>
+<title>10 Solutions</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -31,6 +31,97 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+
+a.sourceLine {
+pointer-events: auto;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -57,7 +148,7 @@ code span.ot { color: #007020; }
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">统计学</h1>
+<h1 class="title toc-ignore project-name">10 Solutions</h1>
 <h4 class="author project-author">Li Zongzhang</h4>
 <h4 class="date project-date">2023-05-24</h4>
 </section>
@@ -66,424 +157,85 @@ code span.ot { color: #007020; }
 <div id="TOC" class="toc">
 <div class="toc-box">
 <ul>
-<li><a href="#教学资源" id="toc-教学资源"><span class="toc-section-number">1</span> 教学资源</a></li>
-<li><a href="#案例作业和实验报告" id="toc-案例作业和实验报告"><span class="toc-section-number">2</span> 案例作业和实验报告</a></li>
-<li><a href="#理论课素材" id="toc-理论课素材"><span class="toc-section-number">3</span> 理论课素材</a></li>
-<li><a href="#实验课素材" id="toc-实验课素材"><span class="toc-section-number">4</span> 实验课素材</a></li>
+<li><a href="#统计学第8版p209习题10.3" id="toc-统计学第8版p209习题10.3">统计学(第8版)P209习题10.3</a></li>
+<li><a href="#统计学第8版p209习题10.6" id="toc-统计学第8版p209习题10.6">统计学(第8版)P209习题10.6</a></li>
+<li><a href="#统计学第8版p209习题10.7" id="toc-统计学第8版p209习题10.7">统计学(第8版)P209习题10.7</a></li>
 </ul>
 </div>
 </div>
 
 <section class="main-content">
-<style type="text/css">
-
-#TOC {
-position: fixed;
-top: 0;
-right: 0;
-height: 100%;
-width: 30%;
-overflow-y: scroll;
-padding-top: 1em;
-padding-bottom: 1em;
-}
-
-body {
-margin-right: 1%;
-}
-</style>
-<p><strong>注意：本站电子资源、视频、讲义供学习交流使用，请勿用于商业用途</strong></p>
-<div id="教学资源" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> 教学资源</h1>
-<ul>
-<li><p>教材及配套数据</p>
-<ul>
-<li><p>统计学(第8版), 贾俊平 何晓群 金勇进
-编著，中国人民大学出版社,2021.</p></li>
-<li><p>百度网盘<a href="https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ" class="uri">https://pan.baidu.com/s/17qdeQpeWWw_nVtqaRoxMSQ</a></p>
-<p>提取码: 93a8</p></li>
-</ul></li>
-<li><p>教学软件及视频</p>
-<ul>
-<li><p>Excel 2016 或以上版本，<strong>注意：不是WPS</strong></p></li>
-<li><p>R 4.2.2 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></p></li>
-<li><p>R Studio 2022.12.0 <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
-<li><p>Excel系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758820">Excel数据分析实战</a></li>
-</ul></li>
-<li><p>R系列</p>
-<ul>
-<li><a href="https://space.bilibili.com/590872906/channel/collectiondetail?sid=758271">R数据分析实战</a></li>
-</ul></li>
-</ul></li>
-<li><p>教学平台</p>
-<ul>
-<li><p>91速课(<a href="https://www.91suke.com" class="uri">https://www.91suke.com</a>)：发布作业，提交作业，测验，考勤等</p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/91.html">在91速课中设置姓名和学号的方法</a></li>
-</ul></li>
-<li><p>QQ群：提交小组作业，提问答疑</p></li>
-</ul></li>
-<li><p>参考书</p>
-<ul>
-<li><p>百度网盘 <a href="https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q" class="uri">https://pan.baidu.com/s/1LOwZbv1DVy1eJr-C4xeX1Q</a></p>
-<p>提取码: reel</p></li>
-</ul></li>
-</ul>
+<div id="统计学第8版p209习题10.3" class="section level1">
+<h1>统计学(第8版)P209习题10.3</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span><span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">9</span>),<span class="fu">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">9</span>),<span class="fu">rep</span>(<span class="st">&quot;c&quot;</span>,<span class="dv">8</span>)),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="fl">8.8</span>,<span class="fl">9.3</span>,<span class="fl">8.7</span>,<span class="fl">9.0</span>,<span class="fl">8.6</span>,<span class="fl">8.3</span>,<span class="fl">9.5</span>,<span class="fl">9.4</span>,<span class="fl">9.2</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="fl">8.2</span>,<span class="fl">6.7</span>,<span class="fl">7.4</span>,<span class="fl">8.0</span>,<span class="fl">8.2</span>,<span class="fl">7.8</span>,<span class="fl">8.8</span>,<span class="fl">8.4</span>,<span class="fl">7.9</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>           <span class="fl">8.6</span>,<span class="fl">8.5</span>,<span class="fl">9.1</span>,<span class="fl">8.2</span>,<span class="fl">8.3</span>,<span class="fl">7.9</span>,<span class="fl">9.9</span>,<span class="fl">9.4</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(time <span class="sc">~</span> method, .) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>            Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+method       2  5.349  2.6746   8.275 0.00196 **
+Residuals   23  7.434  0.3232                   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(method, time), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             time, <span class="at">col =</span> method)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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VZKdnW3t11P6Dz/8sCxYsEDat28vv/71rwP1xvOBU/Dx6HEsAggggAACCCDQQAFN+kaPHi2vv/66nHjiifL+++/LsGHD5LTTTpMmTZpI9+7drQRUE0hdNMk85JBD5I033pDhw4dLVlaWDB06VJ566inrc9++fa1yBx54oLRt29b6XFRUJCNHjhTd1qNHD7nhhhtqnZa/5JJLZPz48dK1a1c59NBD5fbbb5chQ4aI1+u1jr/yyitl0qRJctRRR4kmo+eff761Pd7/MAMaryDHI4AAAggggAACDRQoKCiQ1157zUogO3bsKGeccYbceeedcs0111g1vvvuuzJz5kwr8dRZzA0bNlizn02bNpUxY8ZYM6g6a3rBBRfIueeeayWYOmuqM6vLly+Xqqoqee6556Rfv35WfatXr5Z33nnHSjo/+ugjefLJJ636Tz31VGu/Jp/9+/e3tnXu3FmmT58un3/+ufTs+fMbunr16iXjxo1rYG//dxgJ6P8s+IQAAggggAACCCRVQGctdSZTl/3339/6fvLJJ1vf9T96ml1v/NFl6dKl1szm5MmTrXX9z7p160TvTF+7dm1gW/CHvLw8OeiggwKbNBF9+umnrfVly5ZJbm6udVreX0BnQXX2VJNTPd3fpk2bQPKpZTQ2ElC/Ft8RQAABBBBAAAEHCrRs2XKPqPX0e12L3uWen59vXSPq36+zpnrtp143WteiM6zB+4I/601LzZo1Ey3jX/Ta0NatW1vXg+r+mpoa63S8/5pRf7LsL9/Q78yANlSO4xBAAAEEEEAAgSQKdOnSRebPn29dk+lPJL/77jtZvHixNVO6fv16Kxr/9Zv1hab16eypnqr3z5LqKX59fqheK6o3RemNULr/4IMPtqp766236qs2qv11p8tRHUohBBBAAAEEEEAAgWQJXHHFFdapdn0QvM6GarKoNwXNnj1bcnJypEWLFlYoetOS3nxU36LXe3bq1Eluvvlm+eabb6y6r7/+emsGdODAgdZNSXrN52233Wbt08RU74hPxEICmghF6kAAAQQQQAABBGwWOOyww2TGjBny4IMPSrt27ay75HWW8p577rFa1lP3eo2mJqWaNNa3NGrUyLoDX68j1TvudUb0iy++EJ3l1Pr1+lFNbnVmVffpzUmnnHJKfdVGtd/jm6b9+T77qIqnvtCWLVusO7pSHwkR+AX0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oPEbUgMCCCCAAAIIIIBADAIkoDFgURQBBBBAAAEEEEAgfgES0PgNqQEBBBBAAAEEEEAgBgES0BiwKIoAAggggAACCCAQvwAJaPyG1IAAAggggAACCCAQg0BWDGWNKJqfny+ZmZlGxEIQPwt4xGONSfPmzSFBwEiBjIyf/9Zu1qyZkfERFAIqoD+nubm5wu9Ss34eqqqqzArIJdE4LgEtKSkRfhjM+unzileqq6tl+/btZgVGNAj8IpCXlyc5OTmyY8cO8Xq9uCBgpECrVq2kvLxciouLjYwvXYMqKChI167b2m9OwdvKS+UIIIAAAggggAACoQIkoKEirCOAAAIIIIAAAgjYKkACaisvlSOAAAIIIIAAAgiECpCAhoqwjgACCCCAAAIIIGCrAAmorbxUjgACCCCAAAIIIBAqQAIaKsI6AggggAACCCCAgK0CJKC28lI5AggggAACCCCAQKgACWioCOsIIIAAAggggAACtgqQgNrKS+UIIIAAAggggAACoQIkoKEirCOAAAIIIIAAAgjYKkACaitvelTes/AA6ZDXLj06Sy8RQAABBBBAIG4Bx70LPu4eU0HCBR7sdwfvL064KhUigAACCCDgXgFmQN07tvQMAQQQQAABBBAwUoAE1MhhISgEEEAAAQQQQMC9AiSg7h1beoYAAggggAACCBgpQAJq5LAQFAIIIIAAAggg4F4BElD3ji09QwABBBBAAAEEjBQgATVyWAgKAQQQQAABBBBwrwAJqHvHlp4hgAACCCCAAAJGCpCAGjksBIUAAggggAACCLhXgATUvWNLzxBAAAEEEEAAASMFSECNHBaCQgABBBBAAAEE3CtAAuresaVnCCCAAAIIIICAkQIkoEYOC0EhgAACCCCAAALuFSABde/Y0jMEEEAAAQQQQMBIARJQI4eFoBBAAAEEEEAAAfcKkIC6d2zpGQIIIIAAAgggYKQACaiRw0JQCCCAAAIIIICAewVIQN07tvQMAQQQQAABBBAwUoAE1MhhISgEEEAAAQQQQMC9AiSg7h1beoYAAggggAACCBgpQAJq5LAQFAIIIIAAAggg4F4BElD3ji09QwABBBBAAAEEjBQgATVyWAgKAQQQQAABBBBwrwAJqHvHlp4hgAACCCCAAAJGCpCAGjksBIUAAggggAACCLhXgATUvWNLzxBAAAEEEEAAASMFSECN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" /><!-- --></p>
 </div>
-<div id="案例作业和实验报告" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> 案例作业和实验报告</h1>
-<ul>
-<li><p>提交分组信息：<a href="https://www.wjx.top/vm/e3AyWsR.aspx#" class="uri">https://www.wjx.top/vm/e3AyWsR.aspx#</a></p></li>
-<li><p>案例作业</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/teamwork.html">要求</a></p></li>
-<li><p>示例</p>
-<ul>
-<li><p>[第3-4章]<to be updated></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case2.html">第7-8章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case3.html">第9-10章</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/case4.html">第11章</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>往届学生习作</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/stu1.html">广东省地市领导班子特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu2.html">奶茶消费调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu3.html">大学生择偶观调查</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu4.html">证监会录用人员特征</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu5.html">广州市住宅房租比较</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu6.html">饮料特征分析</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/stu7.html">证券分析师</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/report.html">实验报告要求</a></p></li>
-</ul>
+<div id="统计学第8版p209习题10.6" class="section level1">
+<h1>统计学(第8版)P209习题10.6</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">area =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A1&quot;</span>,<span class="st">&quot;A2&quot;</span>,<span class="st">&quot;A3&quot;</span>),<span class="dv">3</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;B1&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;B2&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;B3&quot;</span>,<span class="dv">3</span>)),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sales =</span> <span class="fu">c</span>(<span class="dv">45</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">75</span>,<span class="dv">50</span>,<span class="dv">65</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(sales <span class="sc">~</span> area <span class="sc">+</span> method,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+area         2   22.2    11.1   0.073  0.931
+method       2  955.6   477.8   3.127  0.152
+Residuals    4  611.1   152.8               </code></pre>
 </div>
-<div id="理论课素材" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> 理论课素材</h1>
-<ul>
-<li><p>第1章导论</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap1.html">chap 1
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1334y1y7U5/">R和R
-Studio 的下载</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1eR4y1V7uW/">R和R
-Studio的安装</a></p></li>
-<li><p>若无法安装R和R Studio, 请观看：<a href="https://www.bilibili.com/video/BV1zY4y1M7HX/">不用安装就能用的RStudio——RStudio
-Cloud</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第2章 数据的搜集</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap2.html">chap 2
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19m4y1F7FE/">如何从中国知网下载统计数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18u411D7GM/">八爪鱼客户端抓取网页数据</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1HL411N7BG/">如何用Excel整理提取的网页数据？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19S4y1r7E4/">如何加载EXCEL数据分析加载项？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GU4y1f7f9/">如何将WORD文档转成图片？</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第3章 数据的图表展示</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap3.html">chap 3
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1uK4y1X752/">Excel图表工具</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1t3411W7V9/">EXCEL图表工具应用——教材第3章习题讲评</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第4章 数据的概括性度量</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap4.html">chap 4
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1nL411Q79r/">Excel描述统计分析——第4章习题讲评</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1PF411N74S/">R
-描述统计量的批量计算 describe函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GN4y177GK/">R描述统计性统计分析
-分位数 quantile函数</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第6章 统计量及其抽样分布</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap6.html">chap 6
-讲义</a></p></li>
-<li><p>Useful links</p>
-<ul>
-<li><p>分位数计算器 <a href="https://gallery.shinyapps.io/dist_calc/" class="uri">https://gallery.shinyapps.io/dist_calc/</a></p></li>
-<li><p>Central Limit Theorem for Means <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p></li>
-<li><p>中心极限定理 n=2-31 <a href="https://astools.datadesk.com/clt.html" class="uri">https://astools.datadesk.com/clt.html</a></p></li>
-<li><p>Galton Board <a href="https://www.mathsisfun.com/data/quincunx.html" class="uri">https://www.mathsisfun.com/data/quincunx.html</a></p></li>
-</ul></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV19Z4y1G7qF/">Excel
-中dist inv函数的运用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Hi4y1L7Eg/">EXCEL
-利用norm.dist函数绘制正态分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F54y1k7sc/">EXCEL
-利用chisq.dist函数绘制卡方分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1df4y1i7c9/">EXCEL
-利用t.dist函数绘制t分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1KV41117mR/">EXCEL
-利用f.dist函数绘制F分布概率密度曲线</a></p></li>
-<li><p><a href="：https://www.bilibili.com/video/BV1C44y1P7Pe">中心极限定理在R中的模拟</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第7章 参数估计</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap7.html">chap 7
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1j5411V7bn/">Excel
-区间估计中置信水平的理解</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1j64y1f7rY/">Excel
-总体均值的置信区间是如何构造的？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1PV411h7rP/">总体方差的置信区间是如何构造的？</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ea411i76G">置信水平的理解——基于R的模拟</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第8章 假设检验</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap8.html">chap 8
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1L54y1r73w/">Excel
-总体均值的Z检验：Z.test函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1uv411r7ws/">Excel
-总体均值的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1mr4y1w7yp/">Excel
-总体均值的T检验：P值法和临界值法</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Zr4y1F7jK/">Excel
-两个总体方差比的F检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV16Z4y137HV/">Excel
-两个总体均值是否相等的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1mD4y1Q77U/">EXCEL
-匹配样本的T检验</a></p></li>
-</ul></li>
-<li><p>疑难知识点</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=1">什么是P值</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=2">显著性水平和P值的区别</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=3">总体均值的检验：Z检验还是T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1F64y1C7nq/?p=4">单侧检验还是双侧检验</a></p></li>
-</ul></li>
-<li><p>课后习题讲评</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1dM4y1t7Xw/">8.1-8.8</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV12h411L74S/">8.9-8.15</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第9章 独立性检验</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap9.html">chap 9
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1454y167ko/">EXCEL
-拟合优度检验 CHISQ.TEST函数的使用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19A411x7EU/">EXCEL
-独立性检验 CHISQ.TEST函数的使用</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第10章 方差分析</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap10.html">chap 10
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1nf4y1v71b/">EXCEL
-单因素方差分析</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18v411t7Hb/">EXCEL
-双因素方差分析</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第11章 相关和回归分析</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap11.html">chap 11
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV15v411b7B9/">EXCEL相关回归分析的函数工具</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV13v411b7EU/">EXCEL数据分析工具库中的回归分析</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第13章 时间序列</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap13.html">chap 13
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1c5411p7ob/">Excel指数平滑法–规划求解</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1nK411M7k6/">Excel趋势型序列的预测</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1nv41147VE/">ExcelEXCEL
-散点图添加非线性回归方程</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV19V411h7aV/">Excel复合型时间序列分解预测之一：季度数据</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Ry4y1v7Et/">复合型时间序列分解预测之二：月度数据</a></p></li>
-</ul></li>
-</ul></li>
-<li><p>第14章 指数</p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/chap14.html">chap 14
-讲义</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV17r4y1T7CP/">Excel
-为什么要把名义收入转换为实际收入？</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-<div id="实验课素材" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> 实验课素材</h1>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/rintro.html">1 R
-&amp; R Studio Introduction 讲义</a></p>
-<ul>
-<li><p>CRAN Task Views <a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a></p></li>
-<li><p>Most Downloaded R Packages <a href="https://www.r-pkg.org/" class="uri">https://www.r-pkg.org/</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV12u411D7uP/">如何安装R扩展包</a></li>
-</ul></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/data_type_structure.html">2
-R的数据类型和数据结构 script</a></p>
-<ul>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1UL4y157kL/">R的数据类型</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1jF411g7Wz/">R的数据结构：向量和矩阵</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Wi4y1U7ti/">R的数据结构：数据框</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Tr4y1H7ga/">R的数据结构：列表list</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/base_graph_tool.html">3
-R的基础图形工具 script</a></p>
-<ul>
-<li><a href="https://lizongzhang.github.io/stat/base_graph_tool_solutions.html">第3讲习题答案</a></li>
-</ul></li>
-<li><p><strong>4 ggplot2</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/4.1.html">4.1 ggplot2
-讲义</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/ggplot2intro.html">4.2 ggplot2
-Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/4solution.html">第4讲
-习题答案 Script</a></p></li>
-<li><p>Useful links</p>
-<ul>
-<li><p>ggplot2 extensions - gallery <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p></li>
-<li><p>color codes <a href="https://htmlcolorcodes.com" class="uri">https://htmlcolorcodes.com</a></p></li>
-</ul></li>
-<li><p>Online Books</p>
-<ul>
-<li><p>Wickham, Hadley. ggplot2: elegant graphics for data analysis.
-springer, 2016. <a href="https://ggplot2-book.org/" class="uri">https://ggplot2-book.org/</a></p></li>
-<li><p>Wickham, Hadley, Garrett Grolemund. R for Data Science <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>5 R Data Manipulation with dplyr</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/5dplyr.html">5 dplyr
-Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1XZ4y127rc/">R的dplyr函数：select()
-和 mutate()</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1D94y1d7wT/">R的dplyr函数：if_else()——对变量值进行条件转换</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1rY4y1e7oY/">R的dplyr函数：filter()——筛选个案</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1pG41177Bi/">如何删除含有缺失值的个案</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/5solution.html">第5讲
-习题答案</a></p></li>
-</ul></li>
-<li><p><strong>6 R 描述性统计与分布理论</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R6.1.html">6.1
-描述统计量的计算 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1PF411N74S/">R
-描述统计量的批量计算 describe函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1GN4y177GK/">R
-计算分位数 quantile函数</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/R6.2.html">6.2
-绘制概率密度曲线 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1vr4y1L75F/">利用R绘制正态分布概率密度曲线</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ga411T7vS/">R中rchisq函数和for循环的应用——不同自由度下的卡方分布比较</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/6solution.html">第6讲
-习题答案</a></p></li>
-</ul></li>
-<li><p><strong>7 中心极限定理与区间估计</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R7.1.html">7.1
-中心极限定理模拟 Script</a></p></li>
-<li><p><a href="https://lizongzhang.github.io/stat/R7.2.html">7.2
-区间估计和置信水平的理解 Script</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1C44y1P7Pe/">中心极限定理在R中的模拟</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ea411i76G/">置信水平的理解——基于R的模拟</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1x3411J7xd/">总体均值的区间估计——R中的t.test函数</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>8 假设检验</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R8ex.html">本章作业</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1MB4y1m721/">R
-单个总体均值的T检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1MB4y1m7xw">R
-单个总体方差的检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1zu411k7dM/">两个总体均值的t检验——R中t.test()函数的运用</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1zL4y1F78F/">两个总体方差的F检验——R中var.test()函数的运用</a></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>9 定性数据分析</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R9ex.html">本章作业</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1iY4y147Ds/">R拟合优度检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Mu41167gx/">R独立性检验</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1ia4y137kB/">R列联表的行百分比/列百分比的计算</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1wk4y1L729/">R列联表的可视化呈——堆栈百分比条形图</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18h41157Fc/">R列联表的可视化呈现——马赛克图</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/solution9.html">9
-习题答案 Script</a></p></li>
-</ul></li>
-<li><p><strong>10 方差分析</strong></p>
-<ul>
-<li><p><a href="https://lizongzhang.github.io/stat/R10ex.html">本章作业</a></p></li>
-<li><p>B站视频</p>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV17a411J7Ho/">R
-单因素方差分析 —— aov()函数</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV1Hv4y1N7Pc/">R
-双因素方差分析 —— aov()函数</a></p></li>
-</ul></li>
-<li><p><a href="https://lizongzhang.github.io/stat/solution10.html">10
-习题答案 Script</a></p></li>
-</ul></li>
-</ul>
+<div id="统计学第8版p209习题10.7" class="section level1">
+<h1>统计学(第8版)P209习题10.7</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">location =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;小区&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;写字楼&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;郊区&quot;</span>,<span class="dv">3</span>)),<span class="dv">4</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">competitors =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;0个&quot;</span>,<span class="dv">9</span>),<span class="fu">rep</span>(<span class="st">&quot;1个&quot;</span>,<span class="dv">9</span>), <span class="fu">rep</span>(<span class="st">&quot;2个&quot;</span>,<span class="dv">9</span>), <span class="fu">rep</span>(<span class="st">&quot;3个以上&quot;</span>,<span class="dv">9</span>)),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sales =</span> <span class="fu">c</span>(<span class="dv">41</span>,<span class="dv">30</span>,<span class="dv">45</span>,<span class="dv">25</span>,<span class="dv">31</span>,<span class="dv">22</span>,<span class="dv">18</span>,<span class="dv">29</span>,<span class="dv">33</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="dv">38</span>,<span class="dv">31</span>,<span class="dv">39</span>,<span class="dv">29</span>,<span class="dv">35</span>,<span class="dv">30</span>,<span class="dv">22</span>,<span class="dv">17</span>,<span class="dv">25</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="dv">59</span>,<span class="dv">48</span>,<span class="dv">51</span>,<span class="dv">44</span>,<span class="dv">48</span>,<span class="dv">50</span>,<span class="dv">29</span>,<span class="dv">28</span>,<span class="dv">26</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="dv">47</span>,<span class="dv">40</span>,<span class="dv">39</span>,<span class="dv">43</span>,<span class="dv">42</span>,<span class="dv">53</span>,<span class="dv">24</span>,<span class="dv">27</span>,<span class="dv">32</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(sales <span class="sc">~</span> location <span class="sc">+</span> competitors <span class="sc">+</span> location<span class="sc">:</span>competitors,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>                     Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+location              2 1736.2   868.1  34.305 9.18e-08 ***
+competitors           3 1078.3   359.4  14.204 1.57e-05 ***
+location:competitors  6  503.3    83.9   3.315   0.0161 *  
+Residuals            24  607.3    25.3                     
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(sales <span class="sc">~</span> location<span class="sc">*</span>competitors,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>                     Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+location              2 1736.2   868.1  34.305 9.18e-08 ***
+competitors           3 1078.3   359.4  14.204 1.57e-05 ***
+location:competitors  6  503.3    83.9   3.315   0.0161 *  
+Residuals            24  607.3    25.3                     
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 </section>
 
