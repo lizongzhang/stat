@@ -12,7 +12,7 @@
 
 <meta name="author" content="Li Zongzhang" />
 
-<meta name="date" content="2024-03-19" />
+<meta name="date" content="2024-03-20" />
 
 <title>ggplot2 Solutions</title>
 
@@ -150,7 +150,7 @@ code span.ot { color: #007020; }
 <section class="page-header">
 <h1 class="title toc-ignore project-name">ggplot2 Solutions</h1>
 <h4 class="author project-author">Li Zongzhang</h4>
-<h4 class="date project-date">2024-03-19</h4>
+<h4 class="date project-date">2024-03-20</h4>
 </section>
 
 
@@ -583,7 +583,7 @@ margin-right: 1%;
 </div>
 <div id="第8题-分组箱线图" class="section level2">
 <h2>第8题 分组箱线图</h2>
-<p>8.任选两个定量变量，一个定性变量，绘制分组箱线图</p>
+<p>8.任选一个定量变量，一个定性变量，绘制分组箱线图</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(drv,cty), cty,<span class="at">col =</span> drv))<span class="sc">+</span> <span class="co"># reorder(drv,cty) 重新排序 drv 变量，按照 cty 变量的大小 col = drv 设置箱线图的颜色</span></span>
 <span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
