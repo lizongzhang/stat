@@ -12,7 +12,7 @@
 
 <meta name="author" content="Li Zongzhang" />
 
-<meta name="date" content="2023-03-31" />
+<meta name="date" content="2025-03-31" />
 
 <title>R 描述性统计量的计算</title>
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -45,7 +45,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -150,7 +150,7 @@ code span.ot { color: #007020; }
 <section class="page-header">
 <h1 class="title toc-ignore project-name">R 描述性统计量的计算</h1>
 <h4 class="author project-author">Li Zongzhang</h4>
-<h4 class="date project-date">2023-03-31</h4>
+<h4 class="date project-date">2025-03-31</h4>
 </section>
 
 
@@ -175,58 +175,58 @@ code span.ot { color: #007020; }
 <div id="计算单个的描述性统计量" class="section level1" number="1">
 <h1><span class="header-section-number">1</span>
 计算单个的描述性统计量</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msleep)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(msleep)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">data</span>(msleep)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">attach</span>(msleep)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">mean</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 10.43373</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">median</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 10.1</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">max</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 19.9</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">min</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 1.9</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">IQR</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 5.9</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">var</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 19.80568</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">sd</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 4.450357</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>))</span></code></pre></div>
 <pre><code>   0%   25%   50%   75%  100% 
  1.90  7.85 10.10 13.75 19.90 </code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">0.9</span>,<span class="fl">0.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">quantile</span>(sleep_total,<span class="at">probs =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">0.9</span>,<span class="fl">0.1</span>))</span></code></pre></div>
 <pre><code>  10%   20%   30%   40%   50%   60%   70%   80%   90% 
  3.92  6.24  8.52  9.48 10.10 11.14 12.80 14.40 15.88 </code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#计算偏度和峰度</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;e1071&quot;)</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co">#计算偏度和峰度</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="co">#install.packages(&quot;e1071&quot;)</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="fu">skewness</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 0.05230964</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosis</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">kurtosis</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] -0.7074466</code></pre>
 <p>注意：mode()返回对象的类型，并不是众数。</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(vore)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">mode</span>(vore)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(genus)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">mode</span>(genus)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">mode</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#定量数据的众数</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DescTools&quot;)</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="co">#定量数据的众数</span></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="co">#install.packages(&quot;DescTools&quot;)</span></span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="fu">Mode</span>(sleep_total)</span></code></pre></div>
 <pre><code>[1] 12.5
 attr(,&quot;freq&quot;)
 [1] 4</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#定性数据的众数</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="co">#定性数据的众数</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
 <pre><code>
   carni   herbi insecti    omni 
      19      32       5      20 </code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">levels</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>vore))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>vore))</span></code></pre></div>
 <pre><code>herbi 
     2 </code></pre>
 </div>
@@ -235,7 +235,7 @@ attr(,&quot;freq&quot;)
 批量计算描述性统计量</h1>
 <div id="basesummary" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> base::summary()</h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="fu">summary</span>(msleep)</span></code></pre></div>
 <pre><code>     name              genus               vore              order          
  Length:83          Length:83          Length:83          Length:83         
  Class :character   Class :character   Class :character   Class :character  
@@ -264,9 +264,9 @@ attr(,&quot;freq&quot;)
 <div id="psychdescribe" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span>
 psych::describe()</h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;psych&quot;)</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="co">#install.packages(&quot;psych&quot;)</span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a><span class="fu">describe</span>(msleep)</span></code></pre></div>
 <pre><code>              vars  n   mean     sd median trimmed   mad  min     max   range
 name*            1 83  42.00  24.10  42.00   42.00 31.13 1.00   83.00   82.00
 genus*           2 83  40.25  22.52  41.00   40.45 28.17 1.00   77.00   76.00
@@ -292,7 +292,7 @@ awake         -0.05    -0.71  0.49
 brainwt        4.63    20.96  0.13
 bodywt         7.10    53.72 86.37</code></pre>
 <p>报告四分位数和IQR</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">describe</span>(msleep,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>              vars  n   mean     sd median trimmed   mad  min     max   range
 name*            1 83  42.00  24.10  42.00   42.00 31.13 1.00   83.00   82.00
 genus*           2 83  40.25  22.52  41.00   40.45 28.17 1.00   77.00   76.00
@@ -322,122 +322,122 @@ bodywt         7.10    53.72 86.37 41.58  0.17 41.75</code></pre>
 <div id="计算分组数据的描述性统计量" class="section level1" number="3">
 <h1><span class="header-section-number">3</span>
 计算分组数据的描述性统计量</h1>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(msleep<span class="sc">~</span>vore,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="fu">describe</span>(msleep<span class="sc">~</span>vore,<span class="at">quant=</span><span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">75</span>),<span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>
  Descriptive statistics by group 
 vore: carni
-              vars  n  mean     sd median trimmed   mad  min    max  range
-name*            1 19 10.00   5.63  10.00   10.00  7.41 1.00  19.00  18.00
-genus*           2 19  9.26   4.77  10.00    9.35  5.93 1.00  16.00  15.00
-vore*            3 19  1.00   0.00   1.00    1.00  0.00 1.00   1.00   0.00
-order*           4 19  1.89   1.52   1.00    1.71  0.00 1.00   6.00   5.00
-conservation*    5 14  4.07   1.64   4.00    4.17  2.22 1.00   6.00   5.00
-sleep_total      6 19 10.38   4.67  10.40   10.30  6.08 2.70  19.40  16.70
-sleep_rem        7 10  2.29   1.86   1.95    2.02  1.56 0.10   6.60   6.50
-sleep_cycle      8  5  0.37   0.03   0.38    0.37  0.05 0.33   0.42   0.08
-awake            9 19 13.63   4.68  13.60   13.70  6.08 4.60  21.35  16.75
-brainwt         10  9  0.08   0.10   0.04    0.08  0.04 0.01   0.32   0.31
-bodywt          11 19 90.75 182.07  20.49   54.37 30.34 0.03 800.00 799.97
-               skew kurtosis    se   IQR Q0.25 Q0.75
-name*          0.00    -1.39  1.29  9.00  5.50 14.50
-genus*        -0.21    -1.34  1.09  7.00  5.50 12.50
-vore*           NaN      NaN  0.00  0.00  1.00  1.00
-order*         1.51     0.96  0.35  1.00  1.00  2.00
-conservation* -0.30    -1.19  0.44  2.50  3.25  5.75
-sleep_total    0.10    -1.02  1.07  6.75  6.25 13.00
-sleep_rem      0.96     0.19  0.59  1.73  1.33  3.05
-sleep_cycle    0.04    -1.85  0.01  0.03  0.35  0.38
-awake         -0.10    -1.02  1.07  6.75 11.00 17.75
-brainwt        1.46     0.74  0.03  0.05  0.02  0.07
-bodywt         3.07     9.15 41.77 89.66  3.34 93.00
+             vars  n  mean     sd median trimmed   mad  min    max  range  skew
+name            1 19 39.58  24.28  42.00   39.41 31.13 4.00  78.00  74.00  0.08
+genus           2 19 41.11  23.05  45.00   41.35 20.76 1.00  77.00  76.00 -0.04
+vore            3 19  1.00   0.00   1.00    1.00  0.00 1.00   1.00   0.00   NaN
+order           4 19  4.89   4.08   3.00    4.29  0.00 3.00  17.00  14.00  2.12
+conservation    5 14  4.07   1.64   4.00    4.17  2.22 1.00   6.00   5.00 -0.30
+sleep_total     6 19 10.38   4.67  10.40   10.30  6.08 2.70  19.40  16.70  0.10
+sleep_rem       7 10  2.29   1.86   1.95    2.02  1.56 0.10   6.60   6.50  0.96
+sleep_cycle     8  5  0.37   0.03   0.38    0.37  0.05 0.33   0.42   0.08  0.04
+awake           9 19 13.63   4.68  13.60   13.70  6.08 4.60  21.35  16.75 -0.10
+brainwt        10  9  0.08   0.10   0.04    0.08  0.04 0.01   0.32   0.31  1.46
+bodywt         11 19 90.75 182.07  20.49   54.37 30.34 0.03 800.00 799.97  3.07
+             kurtosis    se   IQR Q0.25 Q0.75
+name            -1.51  5.57 40.50 18.00 58.50
+genus           -1.07  5.29 26.00 28.00 54.00
+vore              NaN  0.00  0.00  1.00  1.00
+order            3.09  0.94  1.00  3.00  4.00
+conservation    -1.19  0.44  2.50  3.25  5.75
+sleep_total     -1.02  1.07  6.75  6.25 13.00
+sleep_rem        0.19  0.59  1.73  1.33  3.05
+sleep_cycle     -1.85  0.01  0.03  0.35  0.38
+awake           -1.02  1.07  6.75 11.00 17.75
+brainwt          0.74  0.03  0.05  0.02  0.07
+bodywt           9.15 41.77 89.66  3.34 93.00
 ------------------------------------------------------------ 
 vore: herbi
-              vars  n   mean      sd median trimmed   mad  min     max   range
-name*            1 32  16.50    9.38  16.50   16.50 11.86 1.00   32.00   31.00
-genus*           2 32  15.59    8.67  15.50   15.73 11.12 1.00   29.00   28.00
-vore*            3 32   1.00    0.00   1.00    1.00  0.00 1.00    1.00    0.00
-order*           4 32   6.41    3.18   8.50    6.73  0.74 1.00    9.00    8.00
-conservation*    5 26   3.62    1.42   4.00    3.59  1.48 1.00    6.00    5.00
-sleep_total      6 32   9.51    4.88  10.30    9.55  6.23 1.90   16.60   14.70
-sleep_rem        7 24   1.37    0.92   0.95    1.27  0.67 0.40    3.40    3.00
-sleep_cycle      8 12   0.42    0.32   0.22    0.39  0.12 0.12    1.00    0.88
-awake            9 32  14.49    4.88  13.70   14.45  6.23 7.40   22.10   14.70
-brainwt         10 20   0.62    1.57   0.01    0.13  0.02 0.00    5.71    5.71
-bodywt          11 32 366.88 1244.08   1.23   63.04  1.75 0.02 6654.00 6653.98
-               skew kurtosis     se   IQR Q0.25 Q0.75
-name*          0.00    -1.31   1.66 15.50  8.75 24.25
-genus*        -0.04    -1.37   1.53 14.50  8.75 23.25
-vore*           NaN      NaN   0.00  0.00  1.00  1.00
-order*        -0.67    -1.26   0.56  5.25  3.75  9.00
-conservation*  0.02    -1.06   0.28  2.00  2.00  4.00
-sleep_total   -0.14    -1.63   0.86  9.92  4.30 14.22
-sleep_rem      0.84    -0.68   0.19  1.38  0.60  1.97
-sleep_cycle    0.65    -1.40   0.09  0.51  0.18  0.69
-awake          0.14    -1.63   0.86  9.93  9.78 19.70
-brainwt        2.47     4.57   0.35  0.23  0.01  0.24
-bodywt         4.18    17.68 219.92 38.81  0.19 39.00
+             vars  n   mean      sd median trimmed   mad  min     max   range
+name            1 32  41.72   25.01  38.50   41.50 32.62 1.00   83.00   82.00
+genus           2 32  37.25   21.75  37.50   37.12 25.95 3.00   73.00   70.00
+vore            3 32   2.00    0.00   2.00    2.00  0.00 2.00    2.00    0.00
+order           4 32  13.16    5.48  16.50   14.00  0.74 2.00   17.00   15.00
+conservation    5 26   3.62    1.42   4.00    3.59  1.48 1.00    6.00    5.00
+sleep_total     6 32   9.51    4.88  10.30    9.55  6.23 1.90   16.60   14.70
+sleep_rem       7 24   1.37    0.92   0.95    1.27  0.67 0.40    3.40    3.00
+sleep_cycle     8 12   0.42    0.32   0.22    0.39  0.12 0.12    1.00    0.88
+awake           9 32  14.49    4.88  13.70   14.45  6.23 7.40   22.10   14.70
+brainwt        10 20   0.62    1.57   0.01    0.13  0.02 0.00    5.71    5.71
+bodywt         11 32 366.88 1244.08   1.23   63.04  1.75 0.02 6654.00 6653.98
+              skew kurtosis     se   IQR Q0.25 Q0.75
+name          0.14    -1.29   4.42 42.75 22.00 64.75
+genus         0.12    -1.25   3.84 31.00 20.50 51.50
+vore           NaN      NaN   0.00  0.00  2.00  2.00
+order        -1.18    -0.15   0.97  6.25 10.75 17.00
+conservation  0.02    -1.06   0.28  2.00  2.00  4.00
+sleep_total  -0.14    -1.63   0.86  9.92  4.30 14.22
+sleep_rem     0.84    -0.68   0.19  1.38  0.60  1.97
+sleep_cycle   0.65    -1.40   0.09  0.51  0.18  0.69
+awake         0.14    -1.63   0.86  9.93  9.78 19.70
+brainwt       2.47     4.57   0.35  0.23  0.01  0.24
+bodywt        4.18    17.68 219.92 38.81  0.19 39.00
 ------------------------------------------------------------ 
 vore: insecti
-              vars n  mean    sd median trimmed  mad  min   max range  skew
-name*            1 5  3.00  1.58   3.00    3.00 1.48 1.00  5.00  4.00  0.00
-genus*           2 5  3.00  1.58   3.00    3.00 1.48 1.00  5.00  4.00  0.00
-vore*            3 5  1.00  0.00   1.00    1.00 0.00 1.00  1.00  0.00   NaN
-order*           4 5  2.20  1.30   2.00    2.20 1.48 1.00  4.00  3.00  0.26
-conservation*    5 3  1.67  0.58   2.00    1.67 0.00 1.00  2.00  1.00 -0.38
-sleep_total      6 5 14.94  5.92  18.10   14.94 2.67 8.40 19.90 11.50 -0.26
-sleep_rem        7 4  3.52  1.93   3.00    3.52 1.41 2.00  6.10  4.10  0.37
-sleep_cycle      8 3  0.16  0.04   0.17    0.16 0.05 0.12  0.20  0.08 -0.13
-awake            9 5  9.06  5.92   5.90    9.06 2.67 4.10 15.60 11.50  0.26
-brainwt         10 5  0.02  0.03   0.00    0.02 0.00 0.00  0.08  0.08  0.86
-bodywt          11 5 12.92 26.39   0.07   12.92 0.10 0.01 60.00 59.99  1.06
-              kurtosis    se   IQR Q0.25 Q0.75
-name*            -1.91  0.71  2.00  2.00  4.00
-genus*           -1.91  0.71  2.00  2.00  4.00
-vore*              NaN  0.00  0.00  1.00  1.00
-order*           -1.96  0.58  2.00  1.00  3.00
-conservation*    -2.33  0.33  0.50  1.50  2.00
-sleep_total      -2.24  2.65 11.10  8.60 19.70
-sleep_rem        -2.03  0.96  2.37  2.08  4.45
-sleep_cycle      -2.33  0.02  0.04  0.14  0.18
-awake            -2.24  2.65 11.10  4.30 15.40
-brainwt          -1.23  0.02  0.02  0.00  0.03
-bodywt           -0.94 11.80  4.48  0.02  4.50
+             vars n  mean    sd median trimmed   mad   min   max range  skew
+name            1 5 35.60 23.50  29.00   35.60 25.20  8.00 70.00 62.00  0.30
+genus           2 5 52.20 19.84  60.00   52.20 16.31 22.00 71.00 49.00 -0.49
+vore            3 5  3.00  0.00   3.00    3.00  0.00  3.00  3.00  0.00   NaN
+order           4 5  9.40  6.11   6.00    9.40  1.48  5.00 19.00 14.00  0.61
+conservation    5 3  3.67  0.58   4.00    3.67  0.00  3.00  4.00  1.00 -0.38
+sleep_total     6 5 14.94  5.92  18.10   14.94  2.67  8.40 19.90 11.50 -0.26
+sleep_rem       7 4  3.52  1.93   3.00    3.52  1.41  2.00  6.10  4.10  0.37
+sleep_cycle     8 3  0.16  0.04   0.17    0.16  0.05  0.12  0.20  0.08 -0.13
+awake           9 5  9.06  5.92   5.90    9.06  2.67  4.10 15.60 11.50  0.26
+brainwt        10 5  0.02  0.03   0.00    0.02  0.00  0.00  0.08  0.08  0.86
+bodywt         11 5 12.92 26.39   0.07   12.92  0.10  0.01 60.00 59.99  1.06
+             kurtosis    se   IQR Q0.25 Q0.75
+name            -1.68 10.51 21.00 25.00 46.00
+genus           -1.72  8.87 22.00 43.00 65.00
+vore              NaN  0.00  0.00  3.00  3.00
+order           -1.65  2.73  7.00  5.00 12.00
+conservation    -2.33  0.33  0.50  3.50  4.00
+sleep_total     -2.24  2.65 11.10  8.60 19.70
+sleep_rem       -2.03  0.96  2.37  2.08  4.45
+sleep_cycle     -2.33  0.02  0.04  0.14  0.18
+awake           -2.24  2.65 11.10  4.30 15.40
+brainwt         -1.23  0.02  0.02  0.00  0.03
+bodywt          -0.94 11.80  4.48  0.02  4.50
 ------------------------------------------------------------ 
 vore: omni
-              vars  n  mean    sd median trimmed  mad  min   max range  skew
-name*            1 20 10.50  5.92  10.50   10.50 7.41 1.00 20.00 19.00  0.00
-genus*           2 20 10.50  5.92  10.50   10.50 7.41 1.00 20.00 19.00  0.00
-vore*            3 20  1.00  0.00   1.00    1.00 0.00 1.00  1.00  0.00   NaN
-order*           4 20  5.15  1.81   5.00    5.25 0.74 1.00  8.00  7.00 -0.31
-conservation*    5  9  1.89  0.33   2.00    1.89 0.00 1.00  2.00  1.00 -2.07
-sleep_total      6 20 10.93  2.95   9.90   10.45 1.33 8.00 18.00 10.00  1.28
-sleep_rem        7 18  1.96  1.01   1.85    1.85 0.74 0.70  4.90  4.20  1.32
-sleep_cycle      8 11  0.59  0.47   0.50    0.54 0.37 0.13  1.50  1.37  0.89
-awake            9 20 13.07  2.95  14.10   13.55 1.33 6.00 16.00 10.00 -1.28
-brainwt         10 17  0.15  0.32   0.01    0.08 0.01 0.00  1.32  1.32  2.78
-bodywt          11 20 12.72 24.69   0.95    6.63 1.33 0.00 86.25 86.25  1.85
-              kurtosis   se  IQR Q0.25 Q0.75
-name*            -1.38 1.32 9.50  5.75 15.25
-genus*           -1.38 1.32 9.50  5.75 15.25
-vore*              NaN 0.00 0.00  1.00  1.00
-order*           -0.10 0.41 1.00  5.00  6.00
-conservation*     2.63 0.11 0.00  2.00  2.00
-sleep_total       0.17 0.66 1.83  9.10 10.93
-sleep_rem         1.54 0.24 1.05  1.25  2.30
-sleep_cycle      -0.73 0.14 0.45  0.26  0.71
-awake             0.17 0.66 1.83 13.07 14.90
-brainwt           7.14 0.08 0.18  0.00  0.18
-bodywt            2.09 5.52 7.42  0.18  7.60</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore) <span class="sc">%&gt;%</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>(),</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(bodywt),</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">q1 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.25</span>),</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(bodywt),</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(bodywt),</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">q3 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.75</span>),</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(bodywt),</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(bodywt))</span></code></pre></div>
+             vars  n  mean    sd median trimmed   mad  min   max range  skew
+name            1 20 43.75 24.52  46.00   44.75 26.69 2.00 80.00 78.00 -0.30
+genus           2 20 36.90 23.95  31.00   36.44 27.43 2.00 75.00 73.00  0.23
+vore            3 20  4.00  0.00   4.00    4.00  0.00 4.00  4.00  0.00   NaN
+order           4 20 13.90  5.16  15.00   14.81  1.48 1.00 19.00 18.00 -1.36
+conservation    5  9  3.78  0.67   4.00    3.78  0.00 2.00  4.00  2.00 -2.07
+sleep_total     6 20 10.93  2.95   9.90   10.45  1.33 8.00 18.00 10.00  1.28
+sleep_rem       7 18  1.96  1.01   1.85    1.85  0.74 0.70  4.90  4.20  1.32
+sleep_cycle     8 11  0.59  0.47   0.50    0.54  0.37 0.13  1.50  1.37  0.89
+awake           9 20 13.07  2.95  14.10   13.55  1.33 6.00 16.00 10.00 -1.28
+brainwt        10 17  0.15  0.32   0.01    0.08  0.01 0.00  1.32  1.32  2.78
+bodywt         11 20 12.72 24.69   0.95    6.63  1.33 0.00 86.25 86.25  1.85
+             kurtosis   se   IQR Q0.25 Q0.75
+name            -1.21 5.48 34.00 26.75 60.75
+genus           -1.47 5.36 39.50 16.75 56.25
+vore              NaN 0.00  0.00  4.00  4.00
+order            0.75 1.15  2.00 15.00 17.00
+conservation     2.63 0.22  0.00  4.00  4.00
+sleep_total      0.17 0.66  1.83  9.10 10.93
+sleep_rem        1.54 0.24  1.05  1.25  2.30
+sleep_cycle     -0.73 0.14  0.45  0.26  0.71
+awake            0.17 0.66  1.83 13.07 14.90
+brainwt          7.14 0.08  0.18  0.00  0.18
+bodywt           2.09 5.52  7.42  0.18  7.60</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>  <span class="fu">group_by</span>(vore) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>(),</span>
+<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(bodywt),</span>
+<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a>            <span class="at">q1 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.25</span>),</span>
+<span id="cb45-6"><a href="#cb45-6" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(bodywt),</span>
+<span id="cb45-7"><a href="#cb45-7" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(bodywt),</span>
+<span id="cb45-8"><a href="#cb45-8" tabindex="-1"></a>            <span class="at">q3 =</span> <span class="fu">quantile</span>(bodywt, <span class="fl">0.75</span>),</span>
+<span id="cb45-9"><a href="#cb45-9" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(bodywt),</span>
+<span id="cb45-10"><a href="#cb45-10" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(bodywt))</span></code></pre></div>
 <pre><code># A tibble: 5 × 9
   vore    `n()`   min     q1 median    mean    q3    max      sd
   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
